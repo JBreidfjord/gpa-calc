@@ -1,16 +1,14 @@
 import "./App.css";
 
-import { FirebaseApp } from "firebase/app";
+import CalculatorPage from "./pages/calculator/CalculatorPage";
 import LoginPage from "./pages/login/LoginPage";
 import { useState } from "react";
 
-const App = ({ firebaseApp }: { firebaseApp: FirebaseApp }) => {
+const App = () => {
   const [userId, setUserId] = useState("");
 
   return (
-    <div className="App">
-      {!!userId ? <></> : <LoginPage firebaseApp={firebaseApp} setUserId={setUserId} />}
-    </div>
+    <div className="App">{!!userId ? <CalculatorPage /> : <LoginPage setUserId={setUserId} />}</div>
   );
 };
 

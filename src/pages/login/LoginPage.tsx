@@ -1,17 +1,13 @@
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
-import { FirebaseApp } from "firebase/app";
-import { useMemo } from "react";
+import { auth } from "../../firebase";
 
 interface LoginPageProps {
-  firebaseApp: FirebaseApp;
   setUserId: (userId: string) => void;
 }
 
-const LoginPage = ({ firebaseApp, setUserId }: LoginPageProps) => {
+const LoginPage = ({ setUserId }: LoginPageProps) => {
   const provider = new GoogleAuthProvider();
-
-  const auth = useMemo(() => getAuth(firebaseApp), [firebaseApp, getAuth]);
 
   const signIn = async () => {
     const response = await signInWithPopup(auth, provider);
