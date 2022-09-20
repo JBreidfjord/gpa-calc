@@ -1,9 +1,13 @@
 import { useState } from "react";
 
-interface CalculatorPageProps {}
+interface CalculatorPageProps {
+  semester: string;
+}
 
-const CalculatorPage = ({}: CalculatorPageProps) => {
+const CalculatorPage = ({ semester }: CalculatorPageProps) => {
   const [isEditable, setIsEditable] = useState(false);
+
+  // TODO: Fetch data for semester from database
 
   return <>Calc</>;
 };
